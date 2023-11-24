@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/DaniRuan/Automatizacion_pruebas/tree/main/Testing/Test_Gateway_node'
+                git branch: 'main', url: 'https://github.com/DaniRuan/Automation-gateway-test-bench'
             }
         }
         stage('Build') {
