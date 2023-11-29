@@ -86,7 +86,7 @@ void test_ECU1(){
     canMsg.data[0] = i; // Value
     // verifica que el mensaje se haya enviado correctamente
     TEST_ASSERT_EQUAL_MESSAGE(MCP2515::ERROR_OK, mcp.sendMessage(&canMsg), "Messages not sent successfully");
-    delay(1000);
+    delay(5000);
   }
   canMsg.data[0] = 0;
 }
@@ -107,7 +107,7 @@ void test_ECU2(){
     unsigned long startTime = millis();
     while (millis() - startTime < 5000) {
       TEST_ASSERT_EQUAL_MESSAGE(MCP2515::ERROR_OK, mcp.sendMessage(&canMsg), "Messages not sent successfully");
-      delay(2000);
+      //delay(2000);
     }
   }
   //canMsg.data[0] = 0;
