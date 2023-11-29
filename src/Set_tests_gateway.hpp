@@ -93,7 +93,9 @@ void test_ECU1(){
 }
 
 void test_ECU2(){
-  delay(5000);
+ TEST_ASSERT_TRUE(FALSE);
+ /* 
+ delay(5000);
   SPI.begin();
   mcp.setBitrate(CAN_125KBPS);
   mcp.setNormalMode();
@@ -110,6 +112,7 @@ void test_ECU2(){
     delay(2000);
   }
   canMsg.data[0] = 0;
+  */
 }
 
 void test_ECU3(){
@@ -134,6 +137,8 @@ void test_ECU3(){
 }
 
 void test_ECU4(){
+ TEST_ASSERT_TRUE(FALSE);
+ /*
  SPI.begin();
  mcp.setBitrate(CAN_125KBPS);
  mcp.setNormalMode();
@@ -150,6 +155,7 @@ void test_ECU4(){
  }
 
  canMsg.data[0] = 0;
+ */
 }
 
 /*
