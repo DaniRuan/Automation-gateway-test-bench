@@ -93,6 +93,7 @@ void test_ECU1(){
 }
 
 void test_ECU2(){
+  delay(5000);
   SPI.begin();
   mcp.setBitrate(CAN_125KBPS);
   mcp.setNormalMode();
@@ -112,6 +113,7 @@ void test_ECU2(){
 }
 
 void test_ECU3(){
+  delay(5000);
   SPI.begin();
   mcp.setBitrate(CAN_125KBPS);
   mcp.setNormalMode();
