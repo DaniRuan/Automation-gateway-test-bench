@@ -86,6 +86,7 @@ void test_ECU1(){
     canMsg.data[0] = i; // Value
     unsigned long startTime = millis();
     while (millis() - startTime < 4000) {
+     // Check if the message was sent successfully
       TEST_ASSERT_EQUAL_MESSAGE(MCP2515::ERROR_OK, mcp.sendMessage(&canMsg), "Messages not sent successfully");
       delay(100);
     }
@@ -93,8 +94,6 @@ void test_ECU1(){
 }
 
 void test_ECU2(){
- TEST_ASSERT_EQUAL_MESSAGE(1,0,"Module is not connected");
- /* 
  delay(5000);
   SPI.begin();
   mcp.setBitrate(CAN_125KBPS);
@@ -107,12 +106,11 @@ void test_ECU2(){
   
   for (int i = 0; i <= 3; i++) {
     canMsg.data[0] = i; // Value
-    // verifica que el mensaje se haya enviado correctamente
+    // Check if the message was sent successfully
     TEST_ASSERT_EQUAL_MESSAGE(MCP2515::ERROR_OK, mcp.sendMessage(&canMsg), "Messages not sent successfully");
     delay(2000);
   }
   canMsg.data[0] = 0;
-  */
 }
 
 void test_ECU3(){
@@ -137,8 +135,6 @@ void test_ECU3(){
 }
 
 void test_ECU4(){
- TEST_ASSERT_EQUAL_MESSAGE(1,0,"Module is not connected");
- /*
  SPI.begin();
  mcp.setBitrate(CAN_125KBPS);
  mcp.setNormalMode();
@@ -150,93 +146,10 @@ void test_ECU4(){
  unsigned long startTime = millis();
  while (millis() - startTime < 10000) {
     canMsg.data[0] = 1;
+  // Check if the message was sent successfully
     TEST_ASSERT_EQUAL_MESSAGE(MCP2515::ERROR_OK, mcp.sendMessage(&canMsg), "Messages not sent successfully");
     delay(100);
  }
 
  canMsg.data[0] = 0;
- */
 }
-
-/*
-
-void test_ECU1(){
-  SPI.begin();
-  mcp.setBitrate(CAN_125KBPS);
-  mcp.setNormalMode();
-
-  struct can_frame canMsg;
-  canMsg.can_id = 0x0E1;    // ID
-  canMsg.can_dlc = 1;        //  1 byte
-  canMsg.data[0] = 0;
-  
-  for (int i = 0; i <= 3; i++) {
-    canMsg.data[0] = i; // Value
-    // verifica que el mensaje se haya enviado correctamente
-    TEST_ASSERT_EQUAL_MESSAGE(MCP2515::ERROR_OK, mcp.sendMessage(&canMsg), "Messages not sent successfully");
-    delay(1000);
-  }
-  canMsg.data[0] = 0;
-}
-
-void test_ECU1(){
-  SPI.begin();
-  mcp.setBitrate(CAN_125KBPS);
-  mcp.setNormalMode();
-
-  struct can_frame canMsg;
-  canMsg.can_id = 0x0E1;    // ID
-  canMsg.can_dlc = 1;        //  1 byte
-  canMsg.data[0] = 0;
-  
-  for (int i = 0; i <= 3; i++) {
-    canMsg.data[0] = i; // Value
-    // verifica que el mensaje se haya enviado correctamente
-    TEST_ASSERT_EQUAL_MESSAGE(MCP2515::ERROR_OK, mcp.sendMessage(&canMsg), "Messages not sent successfully");
-    delay(1000);
-  }
-  canMsg.data[0] = 0;
-}
-
-void test_ECU2(){
-  SPI.begin();
-  mcp.setBitrate(CAN_125KBPS);
-  mcp.setNormalMode();
-
-  struct can_frame canMsg;
-  canMsg.can_id = 0x0E2;    // ID
-  canMsg.can_dlc = 1;        //  1 byte
-  canMsg.data[0] = 0;
-  
-  for (int i = 0; i <= 3; i++) {
-    canMsg.data[0] = i; // Value
-    // verifica que el mensaje se haya enviado correctamente
-    TEST_ASSERT_EQUAL_MESSAGE(MCP2515::ERROR_OK, mcp.sendMessage(&canMsg), "Messages not sent successfully");
-    delay(2000);
-  }
-  canMsg.data[0] = 0;
-}
-
-void test_ECU2(){
-  SPI.begin();
-  mcp.setBitrate(CAN_125KBPS);
-  mcp.setNormalMode();
-
-  struct can_frame canMsg;
-  canMsg.can_id = 0x0E2;    // ID
-  canMsg.can_dlc = 1;        //  1 byte
-  //canMsg.data[0] = 0;
-  
-  for (int i = 1; i <= 3; i++) {
-    canMsg.data[0] = i; // Value
-    unsigned long startTime = millis();
-    while (millis() - startTime < 4000) {
-      TEST_ASSERT_EQUAL_MESSAGE(MCP2515::ERROR_OK, mcp.sendMessage(&canMsg), "Messages not sent successfully");
-      delay(2000);
-    }
-  }
-  //canMsg.data[0] = 0;
-}
-
-
-*/
