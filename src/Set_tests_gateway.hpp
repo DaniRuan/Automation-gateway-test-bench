@@ -93,7 +93,7 @@ void test_ECU1(){
 }
 
 void test_ECU2(){
- TEST_ASSERT_TRUE(FALSE);
+ TEST_ASSERT_EQUAL_MESSAGE(1,2,"Module is not connected");
  /* 
  delay(5000);
   SPI.begin();
@@ -137,7 +137,7 @@ void test_ECU3(){
 }
 
 void test_ECU4(){
- TEST_ASSERT_TRUE(FALSE);
+ TEST_ASSERT_EQUAL_MESSAGE(1,2,"Module is not connected");
  /*
  SPI.begin();
  mcp.setBitrate(CAN_125KBPS);
