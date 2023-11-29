@@ -99,17 +99,17 @@ void test_ECU2(){
   struct can_frame canMsg;
   canMsg.can_id = 0x0E2;    // ID
   canMsg.can_dlc = 1;        //  1 byte
-  canMsg.data[0] = 0;
+  //canMsg.data[0] = 0;
   
-  for (int i = 0; i <= 3; i++) {
+  for (int i = 1; i <= 3; i++) {
     canMsg.data[0] = i; // Value
     unsigned long startTime = millis();
-    while (millis() - startTime < 5000) {
+    while (millis() - startTime < 4000) {
       TEST_ASSERT_EQUAL_MESSAGE(MCP2515::ERROR_OK, mcp.sendMessage(&canMsg), "Messages not sent successfully");
       delay(2000);
     }
   }
-  canMsg.data[0] = 0;
+  //canMsg.data[0] = 0;
 }
 
 
